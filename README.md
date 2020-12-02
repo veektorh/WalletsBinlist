@@ -54,6 +54,8 @@ Consists of the RabbitMq setup, declares queue and publish messages for every bi
 
 ### 4) DemoApp
 - Asp net core 2.2 web api
+- Entity Framework
+- Sqlite Database
 
 
   - ### DemoApp
