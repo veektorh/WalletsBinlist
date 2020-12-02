@@ -49,7 +49,7 @@ namespace DemoApp.Services
                     {
                         count++;
 
-                        await GetBinDetails(bin,count);
+                        return await GetBinDetails(bin,count);
                     }
                     
                 }
