@@ -1,6 +1,7 @@
 ﻿using BinlistApi.Interfaces.Managers;
 using BinlistApi.Interfaces.Services;
 using BinlistApi.Models;
+using BinlistApi.Services;
 using Microsoft.EntityFrameworkCore;
 using Newtonsoft.Json;
 using System;
@@ -13,16 +14,16 @@ namespace BinlistApi.Managers
 {
     public class BinlistManager : IBinlistManager
     {
-        private readonly IBinlistService binlistService;
+        private readonly IBinApiService binApiService;
 
-        public BinlistManager(IBinlistService binlistService)
+        public BinlistManager(IBinApiService binApiService)
         {
-            this.binlistService = binlistService;
+            this.binApiService = binApiService;
         }
 
         public async Task<Bin> GetBinDetails(string bin)
         {
-            var binDetails = await binlistService.GetBinDetails(bin);
+            var binDetails = await binApiService.GetBinDetails(bin);
 
             return binDetails;
         }

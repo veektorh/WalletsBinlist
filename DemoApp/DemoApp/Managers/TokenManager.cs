@@ -54,7 +54,7 @@ namespace DemoApp.Managers
 
                 ClientId = identityConfig.ClientId,
                 ClientSecret = identityConfig.ClientSecret,
-                Scope = identityConfig.Scope
+                //Scope = identityConfig.Scope
             }).GetAwaiter().GetResult();
 
             if (tokenResponse.IsError)

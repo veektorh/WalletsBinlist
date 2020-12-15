@@ -18,7 +18,8 @@ namespace RabbitMqConsumer
                     HostName = ConfigurationManager.AppSettings["hostname"],
                     Port = Convert.ToInt32(ConfigurationManager.AppSettings["port"]),
                     UserName = ConfigurationManager.AppSettings["username"],
-                    Password = ConfigurationManager.AppSettings["password"]
+                    Password = ConfigurationManager.AppSettings["password"],
+                    //VirtualHost = ConfigurationManager.AppSettings["vhost"]
                 };
 
                 var connection = factory.CreateConnection();
@@ -38,13 +39,13 @@ namespace RabbitMqConsumer
 
                 Console.WriteLine("Consumer up and running");
 
-                Console.ReadKey();
+                Console.Read();
             }
             catch (Exception ex)
             {
                 Console.WriteLine("An error occured, Make sure rabbit mq is running");
                 Console.WriteLine(ex.Message);
-                Console.ReadKey();
+                Console.Read();
             }
         }
 

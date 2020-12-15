@@ -54,6 +54,15 @@ namespace BinlistApi
             services.AddScoped<IRabbitMqManager, RabbitMqManager>();
             services.AddScoped<IBinMessagePublisher, BinMessagePublisher>();
             services.AddScoped<IBinlistService, BinlistService>();
+
+            var apiUrl = Configuration.GetSection("Api:Binlist").Value;
+
+            services.AddHttpClient<IBinApiService, BinApiService>(a =>
+            {
+                a.BaseAddress = new Uri($"{apiUrl}/");
+                a.DefaultRequestHeaders.Clear();
+                a.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+            });
             
 
             services.AddCors(options => options.AddPolicy("AllowAll", builder =>
